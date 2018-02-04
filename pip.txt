@@ -1,0 +1,19 @@
+//Pip is a tool for installing Python packages from the Python Package Index. 
+
+
+pip install Django==1.11.9 // installs version 1.11.9 into the system
+
+pip list // this lists the installed packages
+
+pip install Django==1.11.9 (We know you already ran this one. What information do you see returned in terminal after this command?) // this actually installed the version of Django onto my system
+
+pip freeze (What's the difference between freeze and list?)/ /Output installed packages in requirements format.
+
+First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. What do you see when you ls? What's inside this file? //this listed all of the files and folders on my desktop
+
+pip uninstall Django // terminal returned that it could not uninstall Django because it was not installed
+
+pip show Django// Shows the latest version of Django available on pypi
+
+pip search Flask. // Shows output with all packages containing the name "Flask" and
+a description with that. 
