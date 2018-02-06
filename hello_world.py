@@ -1,18 +1,3 @@
-# Shows your strings and variables when you run "python _name of file_" from terminal
-print "Hello World!"
-x = "Hello Python"
-print x
-y = 42
-print y
-
-
-
-#How to print strings using variables
-print  "this is a simple string"
-name = "Zen"
-print "My name is", name
-print "My name is " + name
-
 #Example of Interpolation using {} and the .format()
 first_name = "Zen"
 last_name = "Coder"
@@ -49,8 +34,6 @@ print drawer[1] #prints envelopes
 #access the drawer with index of 2 and print value
 print drawer[2] #prints pens
 
-#Manipulating lists:
-<list>.append(<new_element>)
 
 x = [99,4,2,5,-3]
 print x[:]
@@ -68,3 +51,89 @@ my_list = [1, 'Zen', 'hi']
 print len(my_list)
 # output
 3
+
+def add(a,b): #we've named the function 'add' and given it to parameters(or inputs to the function)
+    x = a + b
+    return x #we return something
+print add(3,5) #prints the answer
+
+def say_hi(name): #function that has one parameter/input
+    print "Hi, "+ name
+say_hi('holly') #invokes the function and passes in one argument.
+
+#name is the parameter
+#holly is the argument
+#we define parameters
+#we pass in arguments
+
+def say_hi():
+  return "Hi"
+greeting = say_hi() #the returned value from say_hi function gets assigned to the 'greeting' variable
+print greeting #this will output 'Hi'
+
+sum1 = add(4,6)
+sum2 = add(1,4)
+sum3 = sum1 + sum2
+
+def add(a, b):
+  x = a + b
+  return x
+print sum1
+print sum2
+print sum3
+
+def multiply(arr,num):
+    for x in range(len(arr)):
+        arr[x] *= num
+    return arr
+a = [2,4,10,16]
+b = multiply(a,5)
+print b
+
+
+
+dog = ("Canis Familiaris", "dog", "carnivore", 12)
+print dog[2]
+for data in dog:
+    print data
+dog = dog + ("domestic",)
+print dog
+dog = dog[:3] + ("mans best friend",) + dog[4:]
+print dog
+
+def get_circle_area(r):
+    #Return (circumference, area) of a circle of radius r
+    c = 2 * math.pi * r
+    a = math.pi * r * r
+    return (c, a)
+    print c,a
+
+context = {
+  'questions': [
+   { 'id': 1, 'content': 'Why is there a light in the fridge and not in the freezer?'},
+   { 'id': 2, 'content': 'Why don\'t sheep shrink when it rains?'},
+   { 'id': 3, 'content': 'Why are they called apartments when they are all stuck together?'},
+   { 'id': 4, 'content': 'Why do cars drive on the parkway and park on the driveway?'}
+  ]
+ }
+
+for key, data in context.items():
+    for value in data:
+        print "Question #", value["id"], ":", value["content"]
+        print "----"
+
+
+data ={"house":"Haus","cat":"Katze","red":"rot"}
+print data.items()
+print data.keys()
+print data.values()
+
+
+dishes = ["pizza", "sauerkraut", "paella", "hamburger"]
+countries = ["Italy", "Germany", "Spain", "USA"]
+
+country_specialities = zip(countries, dishes)
+print country_specialities
+
+country_specialities_dict = dict(country_specialities) 
+print country_specialities_dict
