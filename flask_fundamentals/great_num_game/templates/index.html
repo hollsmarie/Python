@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Great Number Game Assignment</title>
+  </head>
+  <body>
+    <h1> Welcome to the Great Number Game! </h1>
+    <p>I am thinking of a number between 1 and 100.</p>
+    <p>Take a guess!</p>
+    <form action='/usernum' method='POST'>
+        <input type="text" name="number">
+        <button>Guess</button>
+
+    </form>
+    <form action='/reset'>
+      <input type="submit" name = "" value="reset">
+    </form>
+    {{message}}
+    </body>
+</html>

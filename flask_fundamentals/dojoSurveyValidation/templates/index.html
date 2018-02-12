@@ -1,0 +1,36 @@
+<html>
+
+    <head>
+        <title> Dojo Survey Validation</title>
+    </head>
+    <body>
+        <h1>Please enter valid information!</h1>
+        {% with messages = get_flashed_messages()%}
+         {% if messages %} 
+         {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %} 
+        {% endif %} 
+        {% endwith %}
+
+        <form action='/result' method='POST'>
+            Your Name: <input type='text' name='name'>
+            Dojo Location: <select name='location'>
+              <option value="chicago">Chicago</option>
+              <option value="sanjose">San Jose</option>
+              <option value="seattle">Seattle</option>
+            </select>
+            Favorite Language: <select name='language'>
+              <option value="python">Python</option>
+              <option value="mean">MEAN</option>
+              <option value="c">C#</option>
+            </select>
+            Email:<input type="text" name="email">
+            <p>Comment (Please limit to 120 characters):</p><textarea name='comments'></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </body>
+    </html>
+
+
+
