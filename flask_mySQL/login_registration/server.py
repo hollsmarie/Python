@@ -75,7 +75,9 @@ def validate():
            }
 
     # return render_template("success.html", first=first, last=last, email=email) #Left variable references template 'name' 
+    newUser=mysql.query_db(query, data)
     mysql.query_db(query, data)
+    session["user_id"] = ['id']
     return redirect('/success')
 
 @app.route('/success')
@@ -97,7 +99,8 @@ def login():
     data1 = {"email":request.form["email"]}
     databaseUser = mysql.query_db(query1,data1)
     if (databaseUser):
-            return redirect('/welcome')
+        session["user_id"] = databaseUser[0]['id']
+        return redirect('/welcome')
     else:
         return redirect('/')
     
