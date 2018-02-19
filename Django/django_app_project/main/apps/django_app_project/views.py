@@ -2,12 +2,10 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render, HttpResponse, redirect
+
 def index (request):
-    context = {
-        "email" : "blog@gmail.com",
-        "name" : "mike"
-    }
-    return render(request, "ourApp/index.html", context)
+    response = "Placeholder to later display all the list of blogs"
+    return HttpResponse(response)
 
 
 def new (request):
@@ -15,16 +13,7 @@ def new (request):
     return HttpResponse(response)
 
 def create (request):
-    # if request.method == "POST":
-	# print "*"*50
-	# print request.POST
-    # print request.POST['name']
-    # print request.POST['desc']
-    #     request.session['name'] = "test"  # more on session below
-    # print "*"*50
-	#     return redirect("/")
-	# else:
-	return redirect("/")
+    return redirect ('/blogs')
 
 def show (request):
     response = "placeholder to display blog {{number}}"
@@ -36,4 +25,4 @@ def edit (request):
 
 def destroy (request):
     response = "placeholder to display blog {{number}}"
-    return redirect('/')
+    return redirect('/blogs')
