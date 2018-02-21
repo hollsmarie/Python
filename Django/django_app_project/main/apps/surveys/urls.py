@@ -6,3 +6,4 @@ urlpatterns = [
     url(r'^surveys/new$', views.new), 
 ]
 
+
