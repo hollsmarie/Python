@@ -10,6 +10,7 @@ NAME_REGEX = re.compile(r"^[-a-zA-Z']+$")
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
 
 
+
 class UserManager(models.Manager):
     def validate(self, postData): #declare a controller of validation for the registration checker and create an empty dictionary of errors. Checks for errors below
         errors = {}
@@ -23,8 +24,6 @@ class UserManager(models.Manager):
             errors["Last name cannot be blank!"] = "Last"
         if len(postData['email']) < 2:
             errors["Email cannot be blank!"] = "Email"
-        if (User.objects.filter(email=postData["email"])):
-            errors["Email already in use"] = "Email"
         if not EMAIL_REGEX.match(postData['email']):
             errors["Invalid Email Address!"] = "Email"
         elif User.objects.filter(email = postData["email"]).count() > 0:

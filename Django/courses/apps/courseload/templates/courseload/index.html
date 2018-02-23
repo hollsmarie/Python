@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<a href="{% url 'loginreg:LR_index' %}"></a>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>COURSES APP</title>
+    <h1>COURSES APP</h1>
+</head>
+
+<body>
+    <h2>Add a new course:</h2>
+    <form action="/courseload/add" method='POST'>
+        {% csrf_token %} Course Name:
+        <input type="text" name="courseName"> Course Description:
+        <input type="text" name="courseDescription">
+        <input type="submit" value="Add">
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Courses Name</th>
+                <th>Course Description</th>
+                <th>Date Added</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+            <tr>
+                <td>{{course.courseName}}</td>
+                <br>
+                <td>{{course.courseDescription}}</td>
+                <br>
+                <td>{{course.dateAdded}}</td>
+                <br>
+                <td></td>
+                <td>
+                    <a href="{{course.id}}/delete">Remove</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>
