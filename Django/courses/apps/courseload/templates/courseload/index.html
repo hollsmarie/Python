@@ -11,13 +11,15 @@
 </head>
 
 <body>
-    <h2>Add a new course:</h2>
-    <form action="/courseload/add" method='POST'>
-        {% csrf_token %} Course Name:
-        <input type="text" name="courseName"> Course Description:
-        <input type="text" name="courseDescription">
-        <input type="submit" value="Add">
-    </form>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    
     <table>
         <thead>
             <tr>
@@ -35,15 +37,30 @@
                 <td>{{course.courseDescription}}</td>
                 <br>
                 <td>{{course.dateAdded}}</td>
+                {% if request.session.userid == course.userAdded.id %}
                 <br>
-                <td></td>
                 <td>
-                    <a href="{{course.id}}/delete">Remove</a>
+                    <a href="{{course.id}}/delete">Remove</a> <a href="{{course.id}}/addFaves">Add As A Favorite</a>
                 </td>
+                {% else %}
+                <td>
+                        <a href="{{course.id}}/addFaves">Add As A Favorite</a>
+                    </td>
+                {% endif %} 
             </tr>
             {% endfor %}
         </tbody>
     </table>
+
+    <h2>Add a new course:</h2>
+    <form action="/courseload/add" method='POST'>
+        {% csrf_token %} Course Name:
+        <input type="text" name="courseName"> Course Description:
+        <input type="text" name="courseDescription">
+        <input type="submit" value="Add">
+    </form>
+    <button> <a href="{%url 'loginreg:LR_logout'%}">Logout</a></button> <button> <a href="{{request.session.userid}}/profile">View Your Favorites</a></button>
+
 
 </body>
 

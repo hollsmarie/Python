@@ -36,13 +36,13 @@ def login(request): #never renders a page, it only processes the login
     if len(errors) > 0: #if there are any errors present
         for error in errors:
             messages.error(request,error) #tell us with the messages function
-        return redirect ('/LR_index')
+        return redirect ('loginreg:LR_index')
     else:
         print "got here"
         user = User.objects.filter(email=request.POST['email'])[0]  #run query to filter for email equal to one in the databast. A list is returned. [0] calls that place in the list. Then you need to use key/value for dictionary
         request.session["userid"] = user.id #set session id to be the userid
         request.session["first"] = user.first 
-        return redirect('/success')
+        return redirect('loginreg:LR_success')
     
 
 def logout(request, methods='POST'):

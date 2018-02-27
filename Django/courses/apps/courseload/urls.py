@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^(?P<id>\d+)/addFaves$', views.addFaves, name='addFaves'),
     url(r'^(?P<id>\d+)/profile$', views.profile, name='profile'),
     url(r'^(?P<id>\d+)/destroy$', views.destroy, name='destroy'),
+    url(r'^(?P<id>\d+)/unfave$', views.unfave, name='unfave'),
 ]

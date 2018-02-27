@@ -7,6 +7,46 @@
     <title>USERFAVE PROFILE</title>
 </head>
 <body>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    
+        <table>
+                <h1>Welcome, {{request.session.first}}, here are your favorite courses !</h1>
+                <thead>
+                    <tr>
+                        <th>Courses Name</th>
+                        <th>Course Description</th>
+                        <th>Date Added</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for favorites in favorites %}
+                    <tr>
+                        <td>{{favorites.courseName}}</td>
+                        <br>
+                        <td>{{favorites.courseDescription}}</td>
+                        <br>
+                        <td>{{faveorites.dateAdded}}</td>
+                        <br>
+                        <td></td>
+                        <td>
+                            <a href="/courseload/{{favorites.id}}/unfave">Unfavorite</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="/courseload">Return to courses</a>
+
+            
     
 </body>
 </html>

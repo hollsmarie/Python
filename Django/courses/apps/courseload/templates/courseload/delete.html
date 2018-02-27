@@ -8,13 +8,13 @@
 </head>
 <body>
     <h1>Are you sure you want to delete the following course?</h1>
-    <p>Name: TEMPLATE FOR COURSE NAME</p>
-    <p>Description: TEMPLATE FOR COURSE DESCRIPTION</p>
-    <button>No</button>
+    <p>Name: {{course.courseName}}</p>
+    <p>Description: {{course.courseDescription}}</p>
+  <a href="/courseload">No</a>
 
-    <form action ="{%url 'courses:destroy' id=course.id %}" method="POST">
-        {% csrf_token %}
-        <input type='submit' name='yes' value='Yes! I want to delete this course'>
-</form>
+   
 </body>
-</html>
+ <a href="/courseload/{{course.id}}/destroy">Remove</a>
+
+
+ 
